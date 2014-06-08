@@ -21,7 +21,7 @@
 		</div>
 		<div class="form-group">
 			<lable for="name">Password</lable>
-			<input type="text" class="form-control" id="enter" placeholder="Enter the password here" name="password">
+			<input type="password" class="form-control" id="enter" placeholder="Enter the password here" name="password">
 		</div>
 		<button type="submit" class="btn btn-primary">Login</button>
 		<button type="reset" class="btn btn-primary">Reset</button>

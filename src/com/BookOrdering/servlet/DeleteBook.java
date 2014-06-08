@@ -38,8 +38,9 @@ public class DeleteBook extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		DatabaseManager dm = new DatabaseManager();
-		dm.
-		
+		String id = request.getQueryString();
+		dm.delBook(id);
+		response.sendRedirect("admin_index.jsp");
 	}
 
 }

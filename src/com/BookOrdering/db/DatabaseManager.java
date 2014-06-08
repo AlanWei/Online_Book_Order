@@ -57,21 +57,10 @@ public class DatabaseManager {
 	}
 
 	// delete book from database;
-	public void delBook(Book book) {
-		try {
-			String id = (String) book.getId();
-			/**
-			 * String title = (String) book.getTitle(); String author = (String)
-			 * book.getAuthor(); String price = (String) book.getPrice();
-			 **/
-
-			Statement stat = (Statement) conn.createStatement();
-			String sql = "delete from book where id = " + "'" + id + "'";
-			System.out.println(sql);
-			stat.executeUpdate(sql);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+	public void delBook(String id) {
+		DatabaseManager dm = new DatabaseManager();
+		String sql = "delete from book where id = " + "'" + id + "'";
+		dm.sqlUpdate(sql);
 	}
 
 	// get admin's name and password from database;
@@ -169,17 +158,20 @@ public class DatabaseManager {
 		return rs;
 	}
 
+	public void sqlUpdate(String sql) {
+		try {
+			Statement stat = (Statement) conn.createStatement();
+			stat.executeUpdate(sql);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 	public List<Book> bookList() throws SQLException {
 		DatabaseManager dm = new DatabaseManager();
 		String sql = "select * from book;";
 		ResultSet rs = dm.sqlQuery(sql);
-		/**
-		 * int rowCount = 0; try { while (rs.next()) { rowCount++; } } catch
-		 * (SQLException e) { // TODO Auto-generated catch block
-		 * e.printStackTrace(); }
-		 **/
-
-		// System.out.println(rowCount);
 
 		List<Book> bList = new ArrayList<Book>();
 
@@ -189,7 +181,7 @@ public class DatabaseManager {
 			String bookAuthor = rs.getString("author");
 			float bookPrice = rs.getFloat("price");
 			int bookQuantity = rs.getInt("quantity");
-			//System.out.println(bookTitle);
+			// System.out.println(bookTitle);
 			Book b = new Book(bookId, bookTitle, bookAuthor, bookPrice,
 					bookQuantity);
 			bList.add(b);
