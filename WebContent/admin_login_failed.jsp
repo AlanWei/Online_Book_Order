@@ -23,7 +23,8 @@
 			<lable for="name">Password</lable>
 			<input type="text" class="form-control" id="enter" placeholder="Enter the password" name="password">
 		</div>
-		<button type="submit" class="btn btn-primary btn-lg" id="login-button">Login</button>
+		<button type="submit" class="btn btn-primary" id="login-button">Login</button>
+		<button type="reset" class="btn btn-primary">Reset</button>
 		<p class="help-block" id="login-failed">Wrong name or password, please login again.</p>
 	</form>
 </body>

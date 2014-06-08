@@ -1,15 +1,36 @@
 package com.BookOrdering.model;
 
+import java.sql.SQLException;
+import java.util.List;
+
 import com.BookOrdering.db.*;
 
 public class Book {
 	private String id;
 	private String title;
 	private String author;
-	private String price;
+	private float price;
+	private int quantity;
+	
+
+	public Book(String id, String title, String author, float price, int quantity ){
+		this.id = id;
+		this.title = title;
+		this.author = author;
+		this.price = price;
+		this.quantity = quantity;
+	}
 
 	public String getId() {
 		return id;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 
 	public void setId(String id) {
@@ -32,32 +53,20 @@ public class Book {
 		this.author = author;
 	}
 
-	public String getPrice() {
+	public float getPrice() {
 		return price;
 	}
 
-	public void setPrice(String price) {
+	public void setPrice(float price) {
 		this.price = price;
 	}
 	
-	public static void main(String args[]){
-		Book book = new Book();
-		book.setId("7");
-		book.setTitle("Testbook2");
-		book.setAuthor("Ben");
-		book.setPrice("10.0");
+	public static void main(String args[]) throws SQLException{
 		DatabasaManager dm = new DatabasaManager();
-		//dm.addBook(book);
-		//dm.delBook(book);
-		
-		Admin admin = new Admin("admin1", "123456");
-		
-		if (dm.adminOrNot(admin)){
-			System.out.println("Yes, he is the admin.");
-		} else {
-			System.out.println("Sry, he is not the admin.");
+		List<Book> bl = dm.bookList();
+		for (int i=0; i<bl.size(); i++){
+			String bookTitle = bl.get(i).getTitle();
+			System.out.println(bookTitle);
 		}
 	}
-	
-
 }

@@ -17,13 +17,14 @@
 	<form role="form" action="admin.login" method="get">
 		<div class="form-group">
 			<lable for="name">Admin Name</lable>
-			<input type="text" class="form-control" id="enter" placeholder="Enter the admin name" name="name">
+			<input type="text" class="form-control" id="enter" placeholder="Enter the admin name here" name="name">
 		</div>
 		<div class="form-group">
 			<lable for="name">Password</lable>
-			<input type="text" class="form-control" id="enter" placeholder="Enter the password" name="password">
+			<input type="text" class="form-control" id="enter" placeholder="Enter the password here" name="password">
 		</div>
-		<button type="submit" class="btn btn-primary btn-lg">Login</button>
+		<button type="submit" class="btn btn-primary">Login</button>
+		<button type="reset" class="btn btn-primary">Reset</button>
 	</form>
 </body>
 </html>

@@ -1,6 +1,6 @@
 package com.BookOrdering.servlet;
 
-import java.io.IOException;
+import java.io.*;
 
 import com.BookOrdering.db.*;
 
@@ -9,6 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.catalina.Session;
 
 import com.BookOrdering.model.Admin;
 
@@ -35,13 +38,14 @@ public class AdminServlet extends HttpServlet {
 		String name = request.getParameter("name");
 		String password = request.getParameter("password");
 		
-		System.out.println(name);
-		System.out.println(password);
-		
 		Admin admin = new Admin(name, password);
 		DatabasaManager dm = new DatabasaManager();
+		
+		HttpSession session = request.getSession(true);
+		session.setAttribute("name", name);
+		
 		if (dm.adminOrNot(admin)){
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("admin_index.jsp");
 		} else {
 			response.sendRedirect("admin_login_failed.jsp");
 		}
