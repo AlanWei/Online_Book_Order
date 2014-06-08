@@ -62,7 +62,7 @@ public class Book {
 	}
 	
 	public static void main(String args[]) throws SQLException{
-		DatabasaManager dm = new DatabasaManager();
+		DatabaseManager dm = new DatabaseManager();
 		List<Book> bl = dm.bookList();
 		for (int i=0; i<bl.size(); i++){
 			String bookTitle = bl.get(i).getTitle();

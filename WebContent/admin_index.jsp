@@ -27,7 +27,7 @@
 			Welcome
 			<%
 			out.println(name);
-		%>
+		%>!
 		</h3>
 	</div>
 
@@ -39,21 +39,22 @@
 					<th>Author</th>
 					<th>Price</th>
 					<th>Quantity</th>
+					<th>Action</th>
 				</tr>
 			</thead>
 			<tbody>
 				<%
-					DatabasaManager dm = new DatabasaManager();
-											List<Book> bl = dm.bookList();
-										      for(int i=0; i<bl.size(); i++)
-										      {
-										        String bookTitle = bl.get(i).getTitle();
-										        String bookAuthor = bl.get(i).getAuthor();
-										        float bookPrice = bl.get(i).getPrice();
-										        int bookQuantity = bl.get(i).getQuantity();
+					DatabaseManager dm = new DatabaseManager();
+																	List<Book> bl = dm.bookList();
+																      for(int i=0; i<bl.size(); i++)
+																      {
+																        String bookTitle = bl.get(i).getTitle();
+																        String bookAuthor = bl.get(i).getAuthor();
+																        float bookPrice = bl.get(i).getPrice();
+																        int bookQuantity = bl.get(i).getQuantity();
 				%>
 				<tr class="sc_booklist">
-					<td>
+					<td valign="middle">
 						<%
 							out.print(bookTitle);
 						%>
@@ -73,9 +74,16 @@
 							out.print(bookQuantity);
 						%>
 					</td>
-					<%
-						}
-					%>
+					<td><span style="float:left;"><form action="" method="post">
+							<input name="button" type="submit" class="btn btn-default"
+								value="edit">
+						</form></span>
+						<span><form action="book.delete" method="post">
+							<input name="button" type="submit" class="btn btn-default"
+								value="delete">
+						</form></span>
+					</td>
+					<%}%>
 				</tr>
 			</tbody>
 		</table>
