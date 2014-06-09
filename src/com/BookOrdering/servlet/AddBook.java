@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.BookOrdering.db.DatabaseManager;
-import com.BookOrdering.model.Book;
 
 /**
  * Servlet implementation class AddBook

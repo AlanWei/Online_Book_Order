@@ -8,19 +8,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.BookOrdering.db.*;
+import com.BookOrdering.db.DatabaseManager;
 
 /**
- * Servlet implementation class DeleteBook
+ * Servlet implementation class EditBook
  */
-@WebServlet("/DeleteBook")
-public class DeleteBook extends HttpServlet {
+@WebServlet("/EditBook")
+public class EditBook extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteBook() {
+    public EditBook() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,10 +37,19 @@ public class DeleteBook extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		DatabaseManager dm = new DatabaseManager();
+		//response.sendRedirect("buyabook.jsp");
 		String id = request.getQueryString();
-		dm.delBook(id);
-		response.sendRedirect("admin_index.jsp");
+		/**tring title = request.getParameter("title");
+		String author = request.getParameter("author");
+		String s_price = request.getParameter("price");
+		String s_quantity = request.getParameter("quantity");
+		float price = Float.parseFloat(s_price); 
+		int quantity = Integer.parseInt(s_quantity);**/
+		
+		System.out.println(id);
+		DatabaseManager dm = new DatabaseManager();
+		//dm.editBook(title, author, price, quantity);
+		//response.sendRedirect("admin_index.jsp");
 	}
 
 }

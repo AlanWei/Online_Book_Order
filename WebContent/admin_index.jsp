@@ -52,25 +52,25 @@
 				<form role="form" action="book.add" method="post">
 					<div class="modal-body">
 						<div class="form-group">
-							<lable for="name">Title</lable>
+							<lable>Title</lable>
 							<input type="text" class="form-control"
-								placeholder="Enter the book title here" name="title">
+								placeholder="Enter the book title" name="title">
 						</div>
 						<div class="form-group">
-							<lable for="name">Author</lable>
+							<lable>Author</lable>
 							<input type="text" class="form-control"
-								placeholder="Enter the author name here" name="author">
+								placeholder="Enter the author name" name="author">
 						</div>
 						<div class="form-group">
-							<lable for="name">Price</lable>
+							<lable>Price</lable>
 							<input type="text" class="form-control"
-								placeholder="Enter the price for a single book here"
+								placeholder="Enter the price for a single book"
 								name="price">
 						</div>
 						<div class="form-group">
-							<lable for="name">Quantity</lable>
+							<lable>Quantity</lable>
 							<input type="text" class="form-control"
-								placeholder="Enter the stock quantity here" name="quantity">
+								placeholder="Enter the stock quantity" name="quantity">
 						</div>
 					</div>
 					<div class="modal-footer">
@@ -98,49 +98,99 @@
 			<tbody>
 				<%
 					DatabaseManager dm = new DatabaseManager();
-					List<Book> bl = dm.bookList();
-					for(int i=0; i<bl.size(); i++)
-					{
-						String bookId = bl.get(i).getId();
-						String bookTitle = bl.get(i).getTitle();
-						String bookAuthor = bl.get(i).getAuthor();		
-						float bookPrice = bl.get(i).getPrice();
-						int bookQuantity = bl.get(i).getQuantity();
+											List<Book> bl = dm.bookList();
+											for(int i=0; i<bl.size(); i++)
+											{
+												String bookId = bl.get(i).getId();
+												String bookTitle = bl.get(i).getTitle();
+												String bookAuthor = bl.get(i).getAuthor();		
+												float bookPrice = bl.get(i).getPrice();
+												int bookQuantity = bl.get(i).getQuantity();
 				%>
-				<tr class="sc_booklist">
-					<td valign="middle">
+				<tr>
+					<td class="sc_booklist">
 						<%
 							out.print(bookId);
 						%>
 					</td>
-					<td>
+					<td class="sc_booklist">
 						<%
 							out.print(bookTitle);
 						%>
 					</td>
-					<td>
+					<td class="sc_booklist">
 						<%
 							out.print(bookAuthor);
 						%>
 					</td>
-					<td>
+					<td class="sc_booklist">
 						<%
 							out.print(bookPrice);
 						%>
 					</td>
-					<td>
+					<td class="sc_booklist">
 						<%
 							out.print(bookQuantity);
 						%>
 					</td>
-					<td><form action="" method="post">
-							<span style="float: left;"> <input type="submit"
-								class="btn btn-default" value="edit">
+					<td>
+					<!-- button -->
+					<span style="float: left;">
+							<button class="btn btn-default" data-toggle="modal"
+								data-target="#edit_book">Edit</button>
+								</span>
+					<!-- Modal -->
+					<form role="form" action="book.edit" method="post">
+						<div class="modal fade" id="edit_book" tabindex="-1" role="dialog"
+							aria-labelledby="edit_bookLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal"
+											aria-hidden="true">&times;</button>
+										<h4 class="modal-title" id="edit_bookLabel">Edit book
+											info</h4>
+									</div>
+									
+										<div class="modal-body">
+											<div class="form-group">
+												<lable>Title</lable>
+												<input type="text" class="form-control"
+													placeholder="Enter the book title" name="title">
+											</div>
+											<div class="form-group">
+												<lable>Author</lable>
+												<input type="text" class="form-control"
+													placeholder="Enter the author name" name="author">
+											</div>
+											<div class="form-group">
+												<lable>Price</lable>
+												<input type="text" class="form-control"
+													placeholder="Enter the price for a single book"
+													name="price">
+											</div>
+											<div class="form-group">
+												<lable>Quantity</lable>
+												<input type="text" class="form-control"
+													placeholder="Enter the stock quantity" name="quantity">
+											</div>
+										</div>
+										<div class="modal-footer">
+											<button type="submit" class="btn btn-primary">Save</button>
+											<button type="reset" class="btn btn-primary">Reset</button>
+										</div>
+									
+								</div>
+							</div>
+						</div>
+						</form>
+						
+						<form action="book.delete?<%out.print(bookId);%>" method="post">
+						<span style="float: right">
+							<button type="submit" class="btn btn-default">Delete</button>
 							</span>
 						</form>
-						<form action="book.delete?<%out.print(bookId);%>" method="post">
-							<input type="submit" class="btn btn-default" value="delete">
-						</form></td>
+						</td>
 					<%
 						}
 					%>

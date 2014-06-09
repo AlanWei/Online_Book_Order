@@ -32,6 +32,14 @@
     <servlet-name>addBook</servlet-name>
     <url-pattern>/book.add</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>editBook</servlet-name>
+    <servlet-class>com.BookOrdering.servlet.EditBook</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>editBook</servlet-name>
+    <url-pattern>/book.edit</url-pattern>
+  </servlet-mapping>
   <display-name>OnlineBookOrder</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>

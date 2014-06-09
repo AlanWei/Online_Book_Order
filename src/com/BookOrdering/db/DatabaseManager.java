@@ -49,6 +49,16 @@ public class DatabaseManager {
 		String sql = "delete from book where id = " + "'" + id + "'";
 		dm.sqlUpdate(sql);
 	}
+	
+	// edit book information
+	public void editBook(String title, String author, float price, int quantity) {
+		DatabaseManager dm = new DatabaseManager();
+		
+		String sql = "update book set title=" + "'" + title + "', author=" + "'" + author + "', price="
+				+ "'" + price + "', quantity=" + "'" + quantity + "'" + " where title=" + "'" + title + "'";
+		System.out.println(sql);
+		dm.sqlUpdate(sql);
+	}
 
 	// get admin's name and password from database;
 	public boolean adminOrNot(Admin admin) {
