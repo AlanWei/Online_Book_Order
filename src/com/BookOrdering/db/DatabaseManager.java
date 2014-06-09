@@ -32,28 +32,15 @@ public class DatabaseManager {
 	}
 
 	// add book to database;
-	public void addBook(Book book) {
-		try {
-			String id = (String) book.getId();
-			String title = (String) book.getTitle();
-			String author = (String) book.getAuthor();
-			float price = (float) book.getPrice();
+	public void addBook(String title, String author, float price, int quantity) {
+		DatabaseManager dm = new DatabaseManager();
 
-			Statement stat = (Statement) conn.createStatement();
-			String sql = "insert into book (id, title, author, price)"
-					+ " values (" + "'" + id + "'" + ", " + "'" + title + "'"
-					+ ", " + "'" + author + "'" + ", " + "'" + price + "'"
-					+ ")";
-			System.out.println(sql);
-			stat.executeUpdate(sql);
+		String sql = "insert into book (title, author, price, quantity)" + " values ("
+				+ "'" + title + "'" + ", " + "'" + author + "'" + ", " + "'"
+				+ price + "'" + ", " + "'" + quantity + "'" + ")";
+		//System.out.println(sql);
+		dm.sqlUpdate(sql);
 
-			/**
-			 * while (rs.next()){ System.out.println(rs.getString(1) + "\t" +
-			 * rs.getString(2)); } rs.close();
-			 **/
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
 	}
 
 	// delete book from database;
@@ -181,9 +168,8 @@ public class DatabaseManager {
 			String bookAuthor = rs.getString("author");
 			float bookPrice = rs.getFloat("price");
 			int bookQuantity = rs.getInt("quantity");
-			// System.out.println(bookTitle);
-			Book b = new Book(bookId, bookTitle, bookAuthor, bookPrice,
-					bookQuantity);
+			//System.out.println(bookId);
+			Book b = new Book(bookId, bookTitle, bookAuthor, bookPrice, bookQuantity);
 			bList.add(b);
 		}
 		return bList;

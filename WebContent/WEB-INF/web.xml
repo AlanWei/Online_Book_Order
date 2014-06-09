@@ -1,41 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://java.sun.com/xml/ns/javaee"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-	id="WebApp_ID" version="3.0">
-	<servlet>
-		<servlet-name>buyBook</servlet-name>
-		<servlet-class>com.BookOrdering.servlet.BookServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>buyBook</servlet-name>
-		<url-pattern>/book.do</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>adminLogin</servlet-name>
-		<servlet-class>com.BookOrdering.servlet.AdminServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>adminLogin</servlet-name>
-		<url-pattern>/admin.login</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>deleteBook</servlet-name>
-		<servlet-class>com.BookOrdering.servlet.DeleteBook</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>deleteBook</servlet-name>
-		<url-pattern>/book.delete</url-pattern>
-	</servlet-mapping>
-	<display-name>OnlineBookOrder</display-name>
-	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
-		<welcome-file>index.htm</welcome-file>
-		<welcome-file>index.jsp</welcome-file>
-		<welcome-file>default.html</welcome-file>
-		<welcome-file>default.htm</welcome-file>
-		<welcome-file>default.jsp</welcome-file>
-	</welcome-file-list>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <servlet>
+    <servlet-name>buyBook</servlet-name>
+    <servlet-class>com.BookOrdering.servlet.BookServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>buyBook</servlet-name>
+    <url-pattern>/book.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>adminLogin</servlet-name>
+    <servlet-class>com.BookOrdering.servlet.AdminServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>adminLogin</servlet-name>
+    <url-pattern>/admin.login</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>deleteBook</servlet-name>
+    <servlet-class>com.BookOrdering.servlet.DeleteBook</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>deleteBook</servlet-name>
+    <url-pattern>/book.delete</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>addBook</servlet-name>
+    <servlet-class>com.BookOrdering.servlet.AddBook</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addBook</servlet-name>
+    <url-pattern>/book.add</url-pattern>
+  </servlet-mapping>
+  <display-name>OnlineBookOrder</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
 </web-app>

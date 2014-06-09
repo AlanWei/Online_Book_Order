@@ -6250,3 +6250,12 @@ button.close {
 .sc_booklist {
 	text-align: center;
 }
+.add_btn{
+	display: inline-block;
+	float: right;
+	margin: 10px;
+}
+.welcome{
+	display: inline-block;
+	margin: 10px;
+}

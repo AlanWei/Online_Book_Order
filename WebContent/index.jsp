@@ -41,7 +41,7 @@
 				<th>$13.40</th>
 				<th><form action="book.do" method="get">
 						<input name="button" type="submit" class="btn btn-primary"
-							value="Buy it now!" />
+							value="Buy it now!">
 					</form></th>
 			</tr>
 			<tr class="bl_center">
