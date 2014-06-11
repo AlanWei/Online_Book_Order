@@ -51,20 +51,18 @@ public class DatabaseManager {
 	}
 	
 	// edit book information
-	public void editBook(String title, String author, float price, int quantity) {
+	public void editBook(String id, String title, String author, float price, int quantity) {
 		DatabaseManager dm = new DatabaseManager();
 		
 		String sql = "update book set title=" + "'" + title + "', author=" + "'" + author + "', price="
-				+ "'" + price + "', quantity=" + "'" + quantity + "'" + " where title=" + "'" + title + "'";
-		System.out.println(sql);
+				+ "'" + price + "', quantity=" + "'" + quantity + "'" + " where id=" + "'" + id + "'";
+		//System.out.println(sql);
 		dm.sqlUpdate(sql);
 	}
 
 	// get admin's name and password from database;
-	public boolean adminOrNot(Admin admin) {
+	public boolean adminOrNot(String name, String password) {
 		Statement stat = null;
-		String name = admin.getName();
-		String password = admin.getPassword();
 		try {
 			stat = (Statement) conn.createStatement();
 		} catch (SQLException e) {
@@ -178,7 +176,7 @@ public class DatabaseManager {
 			String bookAuthor = rs.getString("author");
 			float bookPrice = rs.getFloat("price");
 			int bookQuantity = rs.getInt("quantity");
-			//System.out.println(bookId);
+			
 			Book b = new Book(bookId, bookTitle, bookAuthor, bookPrice, bookQuantity);
 			bList.add(b);
 		}

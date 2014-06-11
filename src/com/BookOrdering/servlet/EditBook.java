@@ -38,18 +38,17 @@ public class EditBook extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.sendRedirect("buyabook.jsp");
-		String id = request.getQueryString();
-		/**tring title = request.getParameter("title");
+		String id = request.getParameter("id");
+		String title = request.getParameter("title");
 		String author = request.getParameter("author");
 		String s_price = request.getParameter("price");
 		String s_quantity = request.getParameter("quantity");
 		float price = Float.parseFloat(s_price); 
-		int quantity = Integer.parseInt(s_quantity);**/
-		
-		System.out.println(id);
+		int quantity = Integer.parseInt(s_quantity);
+
 		DatabaseManager dm = new DatabaseManager();
-		//dm.editBook(title, author, price, quantity);
-		//response.sendRedirect("admin_index.jsp");
+		dm.editBook(id, title, author, price, quantity);
+		response.sendRedirect("admin_index.jsp");
 	}
 
 }

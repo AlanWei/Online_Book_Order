@@ -6244,7 +6244,6 @@ button.close {
 
 #login-failed {
 	color: red;
-	display: inline-block;
 }
 
 .sc_booklist {
@@ -6258,4 +6257,7 @@ button.close {
 .welcome{
 	display: inline-block;
 	margin: 10px;
+}
+.logout_btn{
+	float: right;
 }

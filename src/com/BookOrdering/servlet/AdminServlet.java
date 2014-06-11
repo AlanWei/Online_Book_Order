@@ -11,10 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.catalina.Session;
-
-import com.BookOrdering.model.Admin;
-
 /**
  * Servlet implementation class AdminServlet
  */
@@ -38,13 +34,12 @@ public class AdminServlet extends HttpServlet {
 		String name = request.getParameter("name");
 		String password = request.getParameter("password");
 		
-		Admin admin = new Admin(name, password);
 		DatabaseManager dm = new DatabaseManager();
 		
 		HttpSession session = request.getSession(true);
 		session.setAttribute("name", name);
 		
-		if (dm.adminOrNot(admin)){
+		if (dm.adminOrNot(name, password)){
 			response.sendRedirect("admin_index.jsp");
 		} else {
 			response.sendRedirect("admin_login_failed.jsp");
