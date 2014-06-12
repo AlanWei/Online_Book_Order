@@ -7,56 +7,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css"
 	href="css/bootstrap-3.1.1-dist/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css"
+	href="css/customize/index.css" />
 <title>Online Book Ordering</title>
 </head>
 <body>
-	<div class="page-header">
-		<h1>
-			Online Book Order <small>Save your time and money</small>
-		</h1>
+	<div class="container">
+		<div class="masthead">
+			<a href="index.jsp"><img src="static/book-logo.jpg"></a>
+			<ul class="nav nav-pills pull-right top-nav">
+				<li class="top-nav-item">Hot books</li>
+				<li class="top-nav-item">Shopping cart</li>
+				<li class="top-nav-item">Your order</li>
+				<li class="top-nav-item">Sign in</li>
+			</ul>
+		</div>
 	</div>
-	<ul class="nav nav-tabs">
-		<li class="active"><a href="index.jsp">Home</a>
-		<li><a href="purchase.jsp">My Shopping Cart</a>
-		<li><a href="about.jsp">About</a>
-	</ul>
-
-	<table class="table table-hover">
-		<caption id="table_header">Books Available</caption>
-		<thead>
-			<tr class="bl_center">
-				<th>Cover</th>
-				<th>Title</th>
-				<th>Author</th>
-				<th>Price</th>
-				<th>Buy</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr class="bl_center">
-				<th><img class="pic" src="static/The Ides of March.jpg"
-					height="200"></th>
-				<th>The Ides of March</th>
-				<th>Valerio Massimo Manfredi</th>
-				<th>$13.40</th>
-				<th><form action="book.do" method="get">
-						<input name="button" type="submit" class="btn btn-primary"
-							value="Buy it now!">
-					</form></th>
-			</tr>
-			<tr class="bl_center">
-				<th><img class="pic" src="static/The Ides of March.jpg"
-					height="200"></th>
-				<th>The Ides of March</th>
-				<th>Valerio Massimo Manfredi</th>
-				<th>$13.40</th>
-				<th><form action="book.do" method="get">
-						<input name="button" type="submit" class="btn btn-primary"
-							value="Buy it now!" />
-					</form></th>
-			</tr>
-		</tbody>
-	</table>
 
 
 
